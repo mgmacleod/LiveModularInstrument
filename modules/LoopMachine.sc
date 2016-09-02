@@ -23,7 +23,7 @@ LoopMachine_Mod : Module_Mod {
 				BufWr.ar(in*smallEnv, bufnum, phasor, loop:1);
 
 				Out.ar(outBus, in*vol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("loopBufPlay_mod", {arg outBus, bufnum, rateBus, phasorBus, volBus, rateSwitch = 0, gate=1, pauseGate=1;
 				var playBack, phaseStart, phase, env, rate, vol, pauseEnv, dust;
@@ -42,7 +42,7 @@ LoopMachine_Mod : Module_Mod {
 				playBack = BufRd.ar(8, bufnum, phase, loop:1)*env*vol*pauseEnv;
 
 				XOut.ar(outBus, env, playBack);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -175,7 +175,7 @@ LoopMachineOverLap_Mod : Module_Mod {
 				BufWr.ar(in*smallEnv, bufnum, phasor, loop:1);
 
 				Out.ar(outBus, in*vol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			SynthDef("loopMachineOverLapSamplePlayer_mod", {arg bufnum, outBus, playRate=1, numGrains = 1, startPos, startPos0, dur, phasorBus, t_trig=0, vol=0, onOff = 0, z1OnOff = 0, z2OnOff = 0, pauseGate = 1, gate = 1;
 				var env, pauseEnv, onOffEnv, impulse, out, pan, fade, trigRate, trigRateA, duration, envs;
 				var playBuf, toggle, counter, phaseStart, onOffTotal;
@@ -212,7 +212,7 @@ LoopMachineOverLap_Mod : Module_Mod {
 
 				XOut.ar(outBus, onOffTotal, out*env*pauseEnv*vol);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -373,7 +373,7 @@ StraightLoop_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				BufWr.ar(in, bufnum, phasor, loop:1);
-			}).writeDefFile;
+			}).add;
 			SynthDef("straightLoopPlay_mod", {arg outBus, phaseBus, bufnum, loopDur, gate=1, pauseGate=1;
 				var sig1, sig2, env1, env2, trig, trig1, trig2, phaseStart, env, smallEnv, pauseEnv, resetTrig, durs, dur;
 
@@ -399,7 +399,7 @@ StraightLoop_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				XOut.ar(outBus,env, (sig1+sig2)*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -495,7 +495,7 @@ StraightLoop2_Mod : Module_Mod {
 
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
-			}).writeDefFile;
+			}).add;
 			SynthDef("straightLoop2Play_mod", {arg outBus, phaseBus, bufnum, loopDur, gate=1, pauseGate=1;
 				var sig1, sig2, env1, env2, trig, trig1, trig2, env, smallEnv, pauseEnv, resetTrig, durs, dur;
 
@@ -514,7 +514,7 @@ StraightLoop2_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus,(sig1+sig2)*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -603,7 +603,7 @@ GrabNLoop_Mod : Module_Mod {
 				//Out.ar(outBus, in);
 
 				BufWr.ar(in, bufnum, phasor, loop:1);
-			}).writeDefFile;
+			}).add;
 			SynthDef("grabNLoopPlay_mod", {arg outBus, phaseBus, bufnum, loopDur, volBus, gate=1, pauseGate=1;
 				var sig1, sig2, env1, env2, trig, trig1, trig2, phaseStart, env, smallEnv, pauseEnv, resetTrig, durs, dur, phaseAdjust, vol;
 
@@ -628,7 +628,7 @@ GrabNLoop_Mod : Module_Mod {
 				vol = In.kr(volBus);
 
 				Out.ar(outBus, Pan2.ar((sig1+sig2), LFNoise2.kr(0.2))*env*pauseEnv*vol);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

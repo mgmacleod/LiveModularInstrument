@@ -33,7 +33,7 @@ GreatExpectations_Mod : Module_Mod {
 				out = (verbSig*verbVol)+(allpass*allpassVol);
 
 				Out.ar(outBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			//}).load(ModularServers.servers[\lmi0].server);
 		}
 	}

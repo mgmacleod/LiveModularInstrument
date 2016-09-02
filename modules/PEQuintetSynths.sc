@@ -44,7 +44,7 @@ PESequencer_Mod : Module_Mod {
 
 				Out.ar(outBus, (verb+out)* smallEnv*pauseEnv*env*volume);
 
-			}).writeDefFile;
+			}).add;
 
 		}
 	}
@@ -127,7 +127,7 @@ PESynthTone_Mod : Module_Mod {
 
 				Out.ar(outBus, out* env*volume);
 
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

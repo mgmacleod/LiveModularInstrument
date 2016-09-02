@@ -37,7 +37,7 @@ GingerMan_Mod : Module_Mod {
 				Out.ar(outBus+4, [out[0], Delay2.ar(out[1])].distort*pauseEnv*env);
 				Out.ar(outBus+6, [Delay2.ar(out[0]), out[1]].distort*pauseEnv*env);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

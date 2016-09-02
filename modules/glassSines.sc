@@ -14,7 +14,7 @@ GlassSineObject : Module_Mod {
 				mainVol = Lag.kr(In.kr(volBus), 0.1);
 
 				Out.ar(outBus, Pan2.ar(sine*AmpComp.kr(freq)*env*pauseEnv*mainVol, Rand(-1, 1)));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("glassSine4", {arg freq, volBus, outBus, vol=0, gate = 1, pauseGate = 1;
 				var sine, env, pauseEnv, mainVol;
@@ -27,7 +27,7 @@ GlassSineObject : Module_Mod {
 				mainVol = Lag.kr(In.kr(volBus), 0.1);
 
 				Out.ar(outBus, PanAz.ar(4, sine*AmpComp.kr(freq)*env*pauseEnv*mainVol, Rand(-1, 1)));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("glassSine8", {arg freq, volBus, outBus, vol=0, gate = 1, pauseGate = 1;
 				var sine, env, pauseEnv, mainVol;
@@ -40,7 +40,7 @@ GlassSineObject : Module_Mod {
 				mainVol = Lag.kr(In.kr(volBus), 0.1);
 
 				Out.ar(outBus, PanAz.ar(8, sine*AmpComp.kr(freq)*env*pauseEnv*mainVol, Rand(-1, 1)));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -17,20 +17,20 @@ HarmonicShifter_Mod {
 
 				env = Env.asr(attack,1,decay);
 				Out.kr(outBusNum, EnvGen.kr(env, gate, doneAction: 2));
-			}).writeDefFile;
+			}).add;
 			SynthDef(\playBufShifter_mod, {arg bufNum, outBusNum, length, gate = 1.0;
 				var out, env;
 
 				env = Env.new([0.001, 1, 1, 0.001], [3, length-6.1, 3], 'sine');
 				out = EnvGen.kr(env, gate, doneAction: 2)*PlayBuf.ar(1, bufNum);
 				Out.ar(outBusNum, out);
-			}).writeDefFile;
+			}).add;
 			SynthDef(\writeBufShifter_mod, {arg inBusNum=0, bufNum, rate=1, length;
 				var in, out, env;
 				in = In.ar(inBusNum);
 				env = Env.new([0,1,1,0],[0.1, length-0.2, 0.1], 'linear');
 				out =  BufWr.ar(EnvGen.ar(env,1.0,doneAction: 2)*in, bufNum, Phasor.ar(0, BufRateScale.kr(bufNum) * rate, 0, BufFrames.kr(bufNum)), 0);
-			}).writeDefFile;
+			}).add;
 			SynthDef(\shifterX_mod, {arg inBusNum, outBus1, outBus2, outBus3, outBus4, length, delayTime, windowSize, pitchRatio, 				pitchDisp, xStart, xEnd, yStart, yEnd, largeEnvBusNum;
 				var in, in2, out1, out2, out3, out4, addToSlope, env, bigEnv, largeEnv;
 
@@ -51,7 +51,7 @@ HarmonicShifter_Mod {
 				Out.ar(outBus2, out2);
 				Out.ar(outBus3, out3);
 				Out.ar(outBus4, out4);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -152,7 +152,7 @@ FeedBackLooper_Mod {
 				env = EnvGen.kr(Env.sine(length), doneAction:2);
 
 				Out.ar(outBus, local * 0.1 * env);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -214,7 +214,7 @@ ShifterFeedback_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.2,1,0.2), gate, doneAction:2);
 
 				Out.ar(outBus, pauseEnv*env*LeakDC.ar(out*Lag.kr(vol, 0.05)));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("busToOuts4_mod", {arg outBus, bus1, bus2, bus3, bus4, bus5, bus6, bus7, bus8, bus1a, bus2a, bus3a, bus4a, bus5a, bus6a, bus7a, bus8a, fade, volBus, gate=1, pauseGate = 1;
 				var outa, outb, out1, out2, out3, out4, out5, out6, out7, out8, fade2, pauseEnv, env, vol;
@@ -239,7 +239,7 @@ ShifterFeedback_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.2,1,0.2), gate, doneAction:2);
 
 				Out.ar(outBus, pauseEnv*env*LeakDC.ar((outa+outb)*Lag.kr(vol, 0.05)));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("busToOuts8_mod", {arg outBus, bus1, bus2, bus3, bus4, bus5, bus6, bus7, bus8, bus1a, bus2a, bus3a, bus4a, bus5a, bus6a, bus7a, bus8a, fade, volBus, gate=1, pauseGate = 1;
 				var out, out1, out2, out3, out4, out5, out6, out7, out8, fade2, pauseEnv, env, vol;
@@ -263,7 +263,7 @@ ShifterFeedback_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.2,1,0.2), gate, doneAction:2);
 
 				Out.ar(outBus, pauseEnv*env*LeakDC.ar(out*Lag.kr(vol, 0.05)));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("delayBomb2_mod", {arg buf, outBus, volBus;
 				var out, env, env1, dur, vol;
@@ -280,7 +280,7 @@ ShifterFeedback_Mod : Module_Mod {
 
 				Out.ar(outBus, Pan2.ar(CombC.ar(out, 0.3, Rand(0.1, 0.3), dur*4)*env1, Rand(-1,1), vol));
 
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("delayBomb4_mod", {arg buf, outBus, volBus;
 				var out, env, env1, dur, vol;
@@ -297,7 +297,7 @@ ShifterFeedback_Mod : Module_Mod {
 
 				Out.ar(outBus, PanAz.ar(4, CombC.ar(out, 0.3, Rand(0.1, 0.3), dur*4)*env1, Rand(-1,1), vol));
 
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("delayBomb8_mod", {arg buf, outBus, volBus;
 				var out, env, env1, dur, vol;
@@ -314,7 +314,7 @@ ShifterFeedback_Mod : Module_Mod {
 
 				Out.ar(outBus, PanAz.ar(8, CombC.ar(out, 0.3, Rand(0.1, 0.3), dur*4)*env1, Rand(-1,1), vol));
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -562,7 +562,7 @@ BitCrusher_Mod : Module_Mod {
 
 				Out.ar(outbus, sines*0.25*sineVol*env*pauseEnv);
 				Out.ar(outbus,([fx1,fx2])*distVol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("bitCrusher4_Mod",{ arg inbus, outbus, sr1Bus, sr2Bus, distVolBus, sineVolBus, gate = 1, pauseGate = 1;
 				var input, fx1, fx2, fx3, fx4, sines, sine0, sine1, sine2, sine3, sine4, fund, skip, freq, hasFreq, env, pauseEnv;
@@ -597,7 +597,7 @@ BitCrusher_Mod : Module_Mod {
 
 				Out.ar(outbus, sines*0.25*sineVol*env*pauseEnv);
 				Out.ar(outbus,([fx1,fx2,fx3,fx4])*distVol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("bitCrusher8_Mod",{ arg inbus, outbus, sr1Bus, sr2Bus, distVolBus, sineVolBus, gate = 1, pauseGate = 1;
 				var input, fx1, fx2, fx3, fx4, fx5, fx6, fx7, fx8, sines, sine0, sine1, sine2, sine3, sine4, fund, skip, freq, hasFreq, env, pauseEnv;
@@ -640,7 +640,7 @@ BitCrusher_Mod : Module_Mod {
 
 				Out.ar(outbus, sines*0.25*sineVol*env*pauseEnv);
 				Out.ar(outbus,([fx1,fx2,fx3,fx4,fx5,fx6,fx7,fx8])*distVol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -740,7 +740,7 @@ BitInterrupter_Mod : Module_Mod {
 				out = (Lag.kr(1-distortSwitch, 0.05)*in)+(Lag.kr(distortSwitch, 0.05)*out);
 
 				Out.ar(outbus,out);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("bitInterrupter4_Mod",{ arg inbus, outbus, sr1Bus, sr2Bus, distVolBus, distortSwitch, gate = 1, pauseGate = 1;
 				var in, fx1, fx2, fx3, fx4, env, pauseEnv, out;
@@ -766,7 +766,7 @@ BitInterrupter_Mod : Module_Mod {
 				out = (Lag.kr(1-distortSwitch, 0.05)*in)+(Lag.kr(distortSwitch, 0.05)*out);
 
 				Out.ar(outbus,out);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("bitInterrupter8_Mod",{ arg inbus, outbus, sr1Bus, sr2Bus, distVolBus, distortSwitch, gate = 1, pauseGate = 1;
 				var in, fx1, fx2, fx3, fx4, fx5, fx6, fx7, fx8, env, pauseEnv, out;
@@ -796,7 +796,7 @@ BitInterrupter_Mod : Module_Mod {
 				out = (Lag.kr(1-distortSwitch, 0.05)*in)+(Lag.kr(distortSwitch, 0.05)*out);
 
 				Out.ar(outbus,out);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

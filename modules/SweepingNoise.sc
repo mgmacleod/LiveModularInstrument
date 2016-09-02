@@ -18,7 +18,7 @@ SweepingNoise_Mod : Module_Mod {
 
 				Out.ar(outBus, noise*localEnv*pauseEnv*env*volume);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

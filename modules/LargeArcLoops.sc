@@ -18,7 +18,7 @@ LargeArcLoops_Mod : Module_Mod {
 				Out.kr(phasorBus, phasor);
 
 				BufWr.ar(in, bufnum, phasor, loop:1);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("largeArcLoopsPlay_mod", {arg outBus, transferBus, volBus, phasorBus, bufnum, impulseRate, arcDur, panStart, panEnd, gate=1, pauseGate=1;
 				var trig, phaseStart, env, smallEnv, pauseEnv, durs, dur, vol, out, verbLine, rate;
@@ -43,7 +43,7 @@ LargeArcLoops_Mod : Module_Mod {
 				Out.ar(transferBus, out*verbLine);
 
 				Out.ar(outBus, out);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("largeArcVerb_mod", {arg transferBus, outBus, gate=1, pauseGate=1;
 				var in, out, env, pauseEnv;
@@ -56,7 +56,7 @@ LargeArcLoops_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

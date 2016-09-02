@@ -15,7 +15,7 @@ CombFilter_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.02,1,0.02), gate, doneAction: 2);
 
 				Out.ar(outBus, in.dup*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -94,7 +94,7 @@ KlankFilter_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.02,1,0.02), gate, doneAction: 2);
 
 				Out.ar(outBus, in.dup*env*pauseEnv*vol);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -174,7 +174,7 @@ KlankFilter2_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.02,1,0.02), gate, doneAction: 2);
 
 				Out.ar(outBus, in.dup*env*pauseEnv*vol);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -252,7 +252,7 @@ PinkNoise_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.02,1,0.02), gate, doneAction: 2);
 
 				Out.ar(outBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

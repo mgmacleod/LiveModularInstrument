@@ -26,7 +26,7 @@ TVFeedback_Mod : SignalSwitcher_Mod {
 
 				Out.ar(outBus, [LPF.ar(LPF.ar(out, 8000), 8000), LPF.ar(LPF.ar(out, 8000), 8000), (in0*(1-min(amp*5, 1)))+in1]);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

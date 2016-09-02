@@ -17,7 +17,7 @@ PedalRouter_Mod : Module_Mod {
 				out = SoundIn.ar(pedalInBus)*outVol*muteEnv;
 
 				Out.ar(outBus, [out,out]*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

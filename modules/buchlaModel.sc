@@ -18,7 +18,7 @@ BuchlaFilter_Mod {
 				out = BLowShelf.ar(in,freq,1,Lag.kr(db, lagTime)+LFNoise1.kr(0.1));
 
 				ReplaceOut.ar(inBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			SynthDef("buchlaMidFilter_mod", {arg inBus, freq, rq, db, lagTime=0, gate = 1, pauseGate = 1;
 				var in, out, env, pauseEnv;
 
@@ -30,7 +30,7 @@ BuchlaFilter_Mod {
 				out = MidEQ.ar(in,freq, Lag.kr(rq, lagTime), Lag.kr(db, lagTime)+LFNoise1.kr(0.1));
 
 				ReplaceOut.ar(inBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			SynthDef("buchlaHighFilter_mod", {arg inBus, freq, db, lagTime=0, gate = 1, pauseGate = 1;
 				var in, out, env, pauseEnv;
 
@@ -42,7 +42,7 @@ BuchlaFilter_Mod {
 				out = BHiShelf.ar(in,freq,1 ,Lag.kr(db, lagTime)+LFNoise1.kr(0.1));
 
 				ReplaceOut.ar(inBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			SynthDef("buchlaOut1_mod", {arg inBus, outBus, gate = 1, pauseGate = 1;
 				var in, out, env, pauseEnv;
 
@@ -52,7 +52,7 @@ BuchlaFilter_Mod {
 				in  = In.ar(inBus, 2);
 
 				Out.ar(outBus, in*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			SynthDef("buchlaOut2_mod", {arg inBus, outBus, gate = 1, pauseGate = 1;
 				var in, out, env, pauseEnv;
 
@@ -62,7 +62,7 @@ BuchlaFilter_Mod {
 				in  = In.ar(inBus, 2);
 
 				Out.ar(outBus, in*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -294,7 +294,7 @@ BuchlaFilters_Mod : Module_Mod {
 // 				env = EnvGen.kr(Env.asr(0,1,0), gate, doneAction: 2);
 //
 // 				Out.ar(outBus, [layer0,layer0]*env)
-// 			}).writeDefFile
+// 			}).add
 // 		}
 // 	}
 //
@@ -738,7 +738,7 @@ BuchlaSettingBank_Mod {
 //
 // 				Out.ar(outBus0, out);
 // 				Out.ar(outBus1, out);
-// 			}).writeDefFile;
+// 			}).add;
 // 			SynthDef("standingWavesSection2Synth", {arg outBus0, outBus1, amp0=0, amp1=0, amp2=0, amp3=0, amp4=0, amp5=0, amp6=0, amp7=0, amp8=0, amp9=0, amp10=0, amp11=0, amp12=0, amp13=0, amp14=0, amp15=0;
 // 				var sin0, sin1, sin2, sin3, sin4, sin5, sin6, sin7, sin8, sin9, sin10, sin11, sin12, sin13, sin14, sin15;
 //
@@ -764,7 +764,7 @@ BuchlaSettingBank_Mod {
 //
 // 				Out.ar(outBus0, Splay.ar([sin0, sin1, sin2, sin3, sin4, sin5, sin6, sin7, sin8, sin9, sin10, sin11, sin12, sin13, sin14, sin15], 1));
 // 				Out.ar(outBus1, Splay.ar([sin0, sin1, sin2, sin3, sin4, sin5, sin6, sin7, sin8, sin9, sin10, sin11, sin12, sin13, sin14, sin15], 1));
-// 			}).writeDefFile
+// 			}).add
 // 		}
 // 	}
 //

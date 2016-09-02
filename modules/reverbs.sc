@@ -24,7 +24,7 @@ GVerb_Mod : Module_Mod {
 					roomSize+1);
 
 				Out.ar(outBus, verb*pauseEnv*env*vol);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

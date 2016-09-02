@@ -32,7 +32,7 @@ ScaleShifter_Mod : Module_Mod {
 				out = Pan2.ar(sig0+sig1+sig2+sig3,
 					Line.kr(xStart, xEnd, length));
 				Out.ar(outBus, out*volume);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

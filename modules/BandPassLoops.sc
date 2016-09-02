@@ -17,7 +17,7 @@ BandPassLoops_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0,1,0), gate, doneAction: 2);
 
 				Out.ar(outBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("bplFilterSynth2_mod", {arg inBus, outBus, pitchStart, pitchEnd, smallLength, duration, volBus;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, smallEnv, volume, xStart, xEnd, impulse, pitch;
@@ -48,7 +48,7 @@ BandPassLoops_Mod : Module_Mod {
 				//out = PlayBuf.ar(1, buffer, pitch, DelayN.kr(impulse, 2, (smallLength/2)+0.05), 0, 1)+PlayBuf.ar(1, buffer, XLine.kr(pitchStart, pitchEnd, duration), DelayN.kr(impulse, 2, 0.05), 0, 1);
 
 				Out.ar(outBus, out*volume*env);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

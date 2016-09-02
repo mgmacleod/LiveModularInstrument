@@ -15,7 +15,7 @@ RingModStereo_Mod : SignalSwitcher_Mod {
 
 				out = LPF.ar(out, lpFreq)*20*env*pauseEnv;
 				Out.ar(outBus, out, 0);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

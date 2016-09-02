@@ -15,7 +15,7 @@ LowSines_Mod : Module_Mod {
 				sine = SinOsc.ar(freq, 0, 0.2);
 
 				Out.ar(outBus, Pan2.ar(sine*AmpComp.kr(freq)*env*pauseEnv, Rand(-1, 1)));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

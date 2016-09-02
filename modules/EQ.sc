@@ -22,7 +22,7 @@ EQFilter_Mod {
 				out = BLowShelf.ar(in,freq,rq,Lag.kr(db, lagTime)+LFNoise1.kr(0.1));
 
 				ReplaceOut.ar(inBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			SynthDef("eqMidFilter_mod", {arg inBus, freqBus, rqBus, dbBus, lagTime=0, gate = 1, pauseGate = 1;
 				var in, out, env, pauseEnv, freq, rq, db;
 
@@ -38,7 +38,7 @@ EQFilter_Mod {
 				out = MidEQ.ar(in,freq, Lag.kr(rq, lagTime), Lag.kr(db, lagTime)+LFNoise1.kr(0.1));
 
 				ReplaceOut.ar(inBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			SynthDef("eqHighFilter_mod", {arg inBus, freqBus, rqBus, dbBus, lagTime=0, gate = 1, pauseGate = 1;
 				var in, out, env, pauseEnv, freq, rq, db;
 
@@ -54,7 +54,7 @@ EQFilter_Mod {
 				out = BHiShelf.ar(in,freq, rq,Lag.kr(db, lagTime)+LFNoise1.kr(0.1));
 
 				ReplaceOut.ar(inBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			SynthDef("eqOut_mod", {arg inBus, outBus, gate = 1, pauseGate = 1;
 				var in, out, env, pauseEnv;
 
@@ -64,7 +64,7 @@ EQFilter_Mod {
 				in  = In.ar(inBus, 8);
 
 				Out.ar(outBus, in*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

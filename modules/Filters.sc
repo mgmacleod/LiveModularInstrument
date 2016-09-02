@@ -34,7 +34,7 @@ Filters_Mod : Module_Mod {
 				sig = sig*(ampIn/(ampSig+0.001));
 
 				Out.ar(outBus, sig);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

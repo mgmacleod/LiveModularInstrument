@@ -18,7 +18,7 @@ GFNGrainPlayer {
 				env7 = EnvGen.ar(Env.new([0,0,BufFrames.kr(bufnum), 0],[0, BufDur.kr(bufnum),0]), trig);
 
 				BufWr.ar(in, bufnum, env7, 0);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("gfn2_mod", {arg inBus, outBus, volBus, bufnum, dur, playRate, attackTime=0, gate=0, pauseGate=0, t_trig=0;
 				var in, out, env0, env1, env2, env7, vol, pan, impulse, volOsc, trig, pos;
@@ -42,7 +42,7 @@ GFNGrainPlayer {
 				out = out*env1*env2*volOsc*vol;
 
 				Out.ar(outBus, out);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("gfn4_mod", {arg inBus, outBus, volBus, bufnum, dur, playRate, attackTime=0, gate=0, pauseGate=0, t_trig=0;
 				var in, out, env0, env1, env2, env7, vol, pan, impulse, volOsc, trig, pos;
@@ -66,7 +66,7 @@ GFNGrainPlayer {
 				out = [out[0],out[1],out[3],out[2]]*env1*env2*volOsc*vol;
 
 				Out.ar(outBus, out);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("gfn8_mod", {arg inBus, outBus, volBus, bufnum, dur, playRate, attackTime=0, gate=0, pauseGate=0, t_trig=0;
 				var in, out, env0, env1, env2, env7, vol, pan, impulse, volOsc, trig, pos;
@@ -90,7 +90,7 @@ GFNGrainPlayer {
 				out = [out[0],out[1],out[7],out[2],out[6],out[3],out[5],out[4]]*env1*env2*volOsc*vol;
 
 				Out.ar(outBus, out);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -28,7 +28,7 @@ InterruptSine_Mod : Module_Mod {
 				out = (Lag.kr(1-switch, 0.05)*in)+(Lag.kr(switch, 0.05)*sine*vol);
 
 				Out.ar(outBus, out);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

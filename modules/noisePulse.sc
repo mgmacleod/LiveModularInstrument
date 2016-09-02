@@ -19,7 +19,7 @@ NoisePulse_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, Pan2.ar(out, SinOsc.kr(panSpeed))*env*onOffEnv*pauseEnv*vol);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

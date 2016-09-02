@@ -23,7 +23,7 @@ TriggerDelays_Mod : Module_Mod {
 				out = Pan2.ar(out, Line.kr(Rand(-1,1), Rand(-1, 1), decayTime+0.4));
 
 				Out.ar(outBus, out*bigEnv*vol);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

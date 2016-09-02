@@ -35,7 +35,7 @@ DecimateGrains_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outbus,grain*volume*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}
@@ -120,7 +120,7 @@ TriggerSines_Mod : Module_Mod {
 
 					//Out.ar(outbus,input);
 					Out.ar(outbus,(sine0+sine1+sine2+sine3+sine4)*volume*env*pauseEnv*amp);
-				}).writeDefFile;
+				}).add;
 
 		}
 	}
@@ -197,7 +197,7 @@ DelayRingMod_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outbus,fx1*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

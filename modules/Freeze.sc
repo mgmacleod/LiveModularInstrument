@@ -66,7 +66,7 @@ Freeze_Mod : Module_Mod {
 				outSig = outSig*vol*env*pauseEnv*muteEnv;
 
 				Out.ar(audioOutBus, outSig);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -296,7 +296,7 @@ TFreeze_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.1,1,0.1), gate, doneAction:2);
 
 				Out.ar(outBus, ((audioIn*switch0)+(outSig*switch1*vol))*pauseEnv*env);
-			}).writeDefFile;
+			}).add;
 
 			//the multichannel Synths need to be updated to reflect some envelope changes seen above
 
@@ -331,7 +331,7 @@ TFreeze_Mod : Module_Mod {
 			// 	env = EnvGen.kr(Env.asr(0.1,1,0.1), gate, doneAction:2);
 			//
 			// 	Out.ar(outBus, ((audioIn*switch0)+(outSig*switch1*vol))*pauseEnv*env);
-			// }).writeDefFile;
+			// }).add;
 			//
 			// SynthDef("tFreeze8_mod", { arg inBus, outBus, modeBus, trigRateBus, dustOnBus, t_trig, volBus, gate = 1, pauseGate = 1, buffer0, buffer1, buffer2, buffer3, buffer4, buffer5, buffer6, buffer7;
 			// 	var audioIn, chain, outSig, trig, trig0, trig1, switch0, switch1, env, pauseEnv, trigRate, dustOn, vol, mode;
@@ -363,7 +363,7 @@ TFreeze_Mod : Module_Mod {
 			// 	env = EnvGen.kr(Env.asr(0.1,1,0.1), gate, doneAction:2);
 			//
 			// 	Out.ar(outBus, ((audioIn*switch0)+(outSig*switch1*vol))*pauseEnv*env);
-			// }).writeDefFile;
+			// }).add;
 		}
 	}
 

@@ -27,7 +27,7 @@ SpaceJunk_Mod : Module_Mod {
 				out = ((out+([verb, verb].flatten))*16).softclip;
 
 				Out.ar(outBus, Compander.ar(out, out, 0.8, 1, 0.5, 0.01, 0.01));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

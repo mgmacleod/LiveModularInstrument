@@ -27,7 +27,7 @@ LucerneVideo_Mod : SignalSwitcher_Mod {
 				SendTrig.kr(onsets3, 3, 1);
 
 				SendPeakRMS.kr(in0+in1+in2+in3, 20, 1, "/sigAmplitude");
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

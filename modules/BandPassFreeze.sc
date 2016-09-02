@@ -44,7 +44,7 @@ BandPassFreeze_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(1.1,1,0.1), gate, doneAction:2);
 
 				Out.ar(transferBus, [outSig0, outSig1, outSig2]);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("bpfPan2_mod", {arg transferBus, audioOutBus, onOff = 1, vol=0, pauseGate = 1, gate = 1;
 				var in, pan0, pan1, pan2, outSig0, outSig1, outSig2, outSig, pauseEnv, muteEnv, env;
@@ -76,7 +76,7 @@ BandPassFreeze_Mod : Module_Mod {
 
 				Out.ar(audioOutBus, outSig);
 
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("bpfPan4_mod", {arg transferBus, audioOutBus, onOff = 1, vol=0, pauseGate = 1, gate = 1;
 				var in, pan0, pan1, pan2, outSig0, outSig1, outSig2, outSig, pauseEnv, muteEnv, env;
@@ -108,7 +108,7 @@ BandPassFreeze_Mod : Module_Mod {
 
 				Out.ar(audioOutBus, outSig);
 
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("bpfPan8_mod", {arg transferBus, audioOutBus, onOff = 1, vol=0, pauseGate = 1, gate = 1;
 				var in, pan0, pan1, pan2, outSig0, outSig1, outSig2, outSig, pauseEnv, muteEnv, env;
@@ -140,7 +140,7 @@ BandPassFreeze_Mod : Module_Mod {
 
 				Out.ar(audioOutBus, outSig);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -10,7 +10,7 @@ HarmonicDoubler_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate);
 
 				Out.kr(outBusNum, EnvGen.kr(env, gate, doneAction: 2)*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("harmonicDoubler_mod", {arg inBusNum, outBus, largeEnvBusNum, xStart, xEnd, pitchRatio, length, vol;
 					var in, in2, env, delayedSignal, buffer, out, largeEnv, volume;
@@ -26,7 +26,7 @@ HarmonicDoubler_Mod : Module_Mod {
 
 					out = Pan2.ar(out, Line.kr(xStart, xEnd, length));
 					Out.ar(outBus, out*volume*env);
-				}).writeDefFile;
+				}).add;
 		}
 	}
 
@@ -95,7 +95,7 @@ HarmonicDoubler2_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate);
 
 				Out.kr(outBusNum, EnvGen.kr(env, gate, doneAction: 2)*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("harmonicDoubler_mod", {arg inBusNum, outBus, largeEnvBusNum, xStart, xEnd, pitchRatio, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, volume;
@@ -111,7 +111,7 @@ HarmonicDoubler2_Mod : Module_Mod {
 
 				out = Pan2.ar(out, Line.kr(xStart, xEnd, length));
 				Out.ar(outBus, out*volume*env);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("harmonicDoubler2_mod", {arg inBusNum, outBus, largeEnvBusNum, xStart, xEnd, pitchRatio, delayTime, decayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, volume, env2;
@@ -132,7 +132,7 @@ HarmonicDoubler2_Mod : Module_Mod {
 				out = Pan2.ar(out, Line.kr(xStart, xEnd, decayTime));
 
 				Out.ar(outBus, out*volume*env);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

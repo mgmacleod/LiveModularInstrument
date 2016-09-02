@@ -15,7 +15,7 @@ NeuwirthSine_Mod : Module_Mod {
 				sine3 = SinOsc.ar(55, 0, 0.1)*EnvGen.kr(Env.asr(0.1,1,0.1), sine3Gate, doneAction:0);
 
 				Out.ar(outBus, Mix.new([sine0, sine1, sine2, sine3]).dup*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -107,7 +107,7 @@ WubbelsSine_Mod : Module_Mod {
 				sine = SinOsc.ar(freq, 0, 0.1);
 
 				Out.ar(outBus, Pan2.ar(sine*AmpComp.kr(freq)*env*pauseEnv, Rand(-1, 1)));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -200,7 +200,7 @@ WubbelsSine2_Mod : Module_Mod {
 				sine = SinOsc.ar(freq0, 0, 0.1);
 
 				Out.ar(outBus, Pan2.ar(sine*AmpComp.kr(freq)*env*pauseEnv, 0));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -267,7 +267,7 @@ AblingerSine_Mod : Module_Mod {
 				sine = SinOsc.ar(freq0, 0, 0.8);
 
 				Out.ar(outBus, Pan2.ar(sine*AmpComp.kr(freq)*env*pauseEnv, 0));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -334,7 +334,7 @@ PlutaSine_Mod : Module_Mod {
 
 
 				Out.ar(outBus, [sine, sine1]*AmpComp.kr(freq)*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -403,7 +403,7 @@ RhythmicDelays_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(3,1,3), gate, doneAction:2);
 
 				Out.ar(outBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -437,7 +437,7 @@ WubbelsSine3_Mod : Module_Mod {
 				sine = [SinOsc.ar(51.913087197493-1.5, 0, 0.25), SinOsc.ar(51.913087197493+1.5, 0, 0.25)];
 
 				Out.ar(outBus, sine*AmpComp.kr(51.913087197493)*env*pauseEnv*localEnv*vol);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -521,7 +521,7 @@ AutoTuneFake_Mod : Module_Mod {
 				volume = Lag.kr(onOff, 0.01)*Lag.kr(vol, 0.05);
 
 				Out.ar(outBus, osc.dup*volume);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -26,7 +26,7 @@ Mikrophonie_Mod : Module_Mod {
 				panTot = (pan+panPlus).clip(-1, 1);
 
 				Out.ar(outBus, Pan2.ar(out, panTot));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

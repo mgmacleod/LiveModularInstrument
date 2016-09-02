@@ -25,7 +25,7 @@ DistortMono_Mod : Module_Mod {
 
 				Out.ar(outBus, out);
 
-			}).writeDefFile;
+			}).add;
 			SynthDef("distortMonoB_mod", {arg inBus, outBus, compThreshBus, gainBus, limitBus, delayMult, gate = 1, pauseGate = 1;
 				var out, outL, outR, pauseEnv, env, compThresh = 0.5, preGain = 1, limit = 0.5;
 
@@ -48,7 +48,7 @@ DistortMono_Mod : Module_Mod {
 
 				Out.ar(outBus, out);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

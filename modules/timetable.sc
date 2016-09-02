@@ -22,7 +22,7 @@
 // 				Out.ar(outBus+2, in1*env);
 // 				Out.ar(outBus+4, [snare,snare]*env*vol);
 // 				Out.ar(outBus+6, [snare,snare]*env*2);
-// 			}).writeDefFile;
+// 			}).add;
 // 		}
 // 	}
 //
@@ -146,7 +146,7 @@
 // 				vol = In.kr(volBus);
 //
 // 				Out.ar(outBus, in*env*vol);
-// 			}).writeDefFile;
+// 			}).add;
 //
 // 			SynthDef("recNLoopPlayer_mod", {arg bufnum, outBus, volBus, gate = 1;
 // 				var in0, in1, env, out, vol;
@@ -158,7 +158,7 @@
 // 				vol = In.kr(volBus);
 //
 // 				ReplaceOut.ar(outBus, out*env*vol);
-// 			}).writeDefFile;
+// 			}).add;
 // 		}
 // 	}
 //
@@ -315,7 +315,7 @@
 //
 //
 // 				Out.ar(outBus, in*env);
-// 			}).writeDefFile;
+// 			}).add;
 //
 // 			SynthDef("recNLoopPlayer2_mod", {arg bufnum, outBus, volBus, gate = 1;
 // 				var in0, in1, env, out, vol;
@@ -327,7 +327,7 @@
 // 				//vol = In.kr(volBus);
 //
 // 				ReplaceOut.ar(outBus, out*env);
-// 			}).writeDefFile;
+// 			}).add;
 // 		}
 // 	}
 //

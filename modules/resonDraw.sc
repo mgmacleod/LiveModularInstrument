@@ -24,7 +24,7 @@ ResonDraw_Mod : Module_Mod {
 				Out.ar(transferBus, inOut*LagUD.kr(onOff, 0.1, 1)*env*pauseEnv*inOutVol);
 
 				Out.ar(outBus, noiseOut*LagUD.kr(onOff, 0.1, 1)*env*pauseEnv*noiseVol);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("resonNoise4_mod", {arg inBus, outBus, transferBus, noiseVol=0, inOutVol=0, centerFreq, lfoFreq, rq = 0.1, onOff=1, gate=1, pauseGate=1;
 				var env, in, noiseOut, inOut, pauseEnv, freq;
@@ -45,7 +45,7 @@ ResonDraw_Mod : Module_Mod {
 				Out.ar(transferBus, inOut*LagUD.kr(onOff, 0.1, 1)*env*pauseEnv*inOutVol);
 
 				Out.ar(outBus, noiseOut*LagUD.kr(onOff, 0.1, 1)*env*pauseEnv*noiseVol);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("resonNoise8_mod", {arg inBus, outBus, transferBus, noiseVol=0, inOutVol=0, centerFreq, lfoFreq, rq = 0.1, onOff=1, gate=1, pauseGate=1;
 				var env, in, noiseOut, inOut, pauseEnv, freq;
@@ -66,7 +66,7 @@ ResonDraw_Mod : Module_Mod {
 				Out.ar(transferBus, inOut*LagUD.kr(onOff, 0.1, 1)*env*pauseEnv*inOutVol);
 
 				Out.ar(outBus, noiseOut*LagUD.kr(onOff, 0.1, 1)*env*pauseEnv*noiseVol);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("resonDelays2_mod", {arg inBusNum, outBus0, outBus1, delayTime, length;
 				var in, in2, env, delayedSignal, buffer, out, bigEnv, volume, xStart, xEnd;
@@ -85,7 +85,7 @@ ResonDraw_Mod : Module_Mod {
 				out = Pan2.ar(delayedSignal, Line.kr(xStart, xEnd, length+2+delayTime));
 				Out.ar(outBus0, out[0]);
 				Out.ar(outBus1, out[1]);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

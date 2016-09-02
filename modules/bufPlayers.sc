@@ -41,7 +41,7 @@ OverLapSamples_Mod : Module_Mod {
 				out = Select.ar(whichOut, [out0, out0+out1]);
 
 				Out.ar(outBus, out*env*pauseEnv*vol*onOffEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -208,7 +208,7 @@ LoopBuf_Mod : Module_Mod {
 				out = LeakDC.ar(out);
 
 				Out.ar(outBus, out*env*vol*pauseEnv*pausePlayEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -367,7 +367,7 @@ SampleMashup_Mod : Module_Mod {
 				out = PlayBuf.ar(1, bufnum, BufRateScale.kr(bufnum), 1, startPos, loop: 0);
 				out = Pan2.ar(out, Rand(-1.0,1.0));
 				Out.ar(outBus, out*env2*pauseGate*vol);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("sampleMashupPlayerStereo_mod", {arg bufnum, outBus, startPos = 0, dur, volBus, gate = 1, pauseGate = 1;
 				var in0, in1, env, env2, out, pauseEnv, vol;
@@ -380,7 +380,7 @@ SampleMashup_Mod : Module_Mod {
 				out = PlayBuf.ar(2, bufnum, BufRateScale.kr(bufnum), 1, startPos, loop: 0);
 
 				Out.ar(outBus, out*env2*pauseGate*vol);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

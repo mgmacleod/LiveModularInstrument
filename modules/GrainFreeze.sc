@@ -16,7 +16,7 @@ GrainFreezeDrums_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.02,1,0.02), gate, doneAction: 2);
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
-			}).writeDefFile;
+			}).add;
 
 			SynthDef(\gfdPlay2_mod, { arg inBus, phaseBus, outBus = 0, bufnum = 0, volBus, thresh = 0.1, trigDiv = 2, addPulse = 2, whichTrig=0, useOnOff = 0, offDensity = 0, impDust=0, t_trigShifter=0, t_trigShiftStay=0, shiftTime = 3, lockGate = 1, muteGate = 1, gate = 1, pauseGate = 1;
 				var sound, impulse, trig, trig1, trig2, phase, impRate, out, latchPhase = 0, amp, toggleEnv, shiftTrig, shiftEnv, shiftStay, shift, vol, env, pauseEnv, muteEnv, onOffSwitch, phaseOffset, buf, chain;
@@ -80,7 +80,7 @@ GrainFreezeDrums_Mod : Module_Mod {
 
 				Out.ar(outBus, out*0.1*toggleEnv*env*pauseEnv*muteEnv*vol*onOffSwitch);
 
-			}).writeDefFile;
+			}).add;
 
 			/*SynthDef(\gfdPlay4_mod, { arg inBus, phaseBus, outBus = 0, bufnum = 0, volBus, thresh = 0.1, trigDiv = 2, addPulse = 2, whichTrig=0, useOnOff = 0, offDensity = 0, impDust=0, t_trigShifter=0, t_trigShiftStay=0, shiftTime = 3, lockGate = 1, muteGate = 1, gate = 1, pauseGate = 1;
 			var sound, impulse, trig, trig1, trig2, phase, impRate, out, latchPhase = 0, amp, toggleEnv, shiftTrig, shiftEnv, shiftStay, shift, vol, env, pauseEnv, muteEnv, onOffSwitch, phaseOffset;
@@ -137,7 +137,7 @@ GrainFreezeDrums_Mod : Module_Mod {
 
 			Out.ar(outBus, [out[0],out[1],out[3],out[2]]*0.1*toggleEnv*env*pauseEnv*muteEnv*vol*onOffSwitch);
 
-			}).writeDefFile;
+			}).add;
 
 			SynthDef(\gfdPlay8_mod, { arg inBus, phaseBus, outBus = 0, bufnum = 0, volBus, thresh = 0.1, trigDiv = 2, addPulse = 2, whichTrig=0, useOnOff = 0, offDensity = 0, impDust=0, t_trigShifter=0, t_trigShiftStay=0, shiftTime = 3, lockGate = 1, muteGate = 1, gate = 1, pauseGate = 1;
 			var sound, impulse, trig, trig1, trig2, phase, impRate, out, latchPhase = 0, amp, toggleEnv, shiftTrig, shiftEnv, shiftStay, shift, vol, env, pauseEnv, muteEnv, onOffSwitch, phaseOffset;
@@ -194,7 +194,7 @@ GrainFreezeDrums_Mod : Module_Mod {
 
 			Out.ar(outBus, [out[0],out[1],out[7],out[2],out[6],out[3],out[5],out[4]]*0.1*toggleEnv*env*pauseEnv*muteEnv*vol*onOffSwitch);
 
-			}).writeDefFile;*/
+			}).add;*/
 		}.defer(1);
 	}
 

@@ -19,7 +19,7 @@ InterruptLoop_Mod : Module_Mod {
 				BufWr.ar(in, bufnum, phasor, loop:1);
 
 				Out.ar(outBus, in*env*smallEnv*pauseEnv);
-			}).writeDefFile;
+			}).add;
 			SynthDef("inturruptLoopPlay_mod", {arg outBus, bufnum, phaseStart, phaseLength, gate=1, pauseGate=1;
 				var playBack, phase, env, pauseEnv;
 
@@ -31,7 +31,7 @@ InterruptLoop_Mod : Module_Mod {
 				playBack = BufRd.ar(8, bufnum, phase, loop:1)*env*pauseEnv;
 
 				XOut.ar(outBus, env, playBack);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("inturruptLoopPlayJumpy_mod", {arg outBus, bufnum, phaseStart, phaseLength, gate=1, pauseGate=1;
 				var playBack, phase, env, pauseEnv, phaseStart2;
@@ -47,7 +47,7 @@ InterruptLoop_Mod : Module_Mod {
 				playBack = BufRd.ar(8, bufnum, phase, loop:1)*env*pauseEnv;
 
 				XOut.ar(outBus, env, playBack);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -8,7 +8,7 @@ PulsatingDelays_Mod : Module_Mod {
 
 				env = Env.asr(attack,1,decay);
 				Out.kr(outBusNum, EnvGen.kr(env, gate, doneAction: 2));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("pulsatingDelays2_mod", {arg inBusNum, outBus, largeEnvBusNum, pulseStart, pulseEnd, delayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, bigEnv, volume, xStart, xEnd;
@@ -30,7 +30,7 @@ PulsatingDelays_Mod : Module_Mod {
 				out = Pan2.ar(delayedSignal, Line.kr(xStart, xEnd, length+2+delayTime));
 				out = out*SinOsc.kr(Line.kr(pulseStart, pulseEnd, length+2+delayTime), 1, 0.5);
 				Out.ar(outBus, out*volume);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("pulsatingDelays4_mod", {arg inBusNum, outBus, largeEnvBusNum, pulseStart, pulseEnd, delayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, bigEnv, volume, xStart, xEnd;
@@ -52,7 +52,7 @@ PulsatingDelays_Mod : Module_Mod {
 				out = PanAz.ar(4, delayedSignal, Line.kr(xStart, xEnd, length+2+delayTime));
 				out = out*SinOsc.kr(Line.kr(pulseStart, pulseEnd, length+2+delayTime), 1, 0.5);
 				Out.ar(outBus, [out[0],out[1],out[3],out[2]]*volume);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("pulsatingDelays8_mod", {arg inBusNum, outBus, largeEnvBusNum, pulseStart, pulseEnd, delayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, bigEnv, volume, xStart, xEnd;
@@ -74,7 +74,7 @@ PulsatingDelays_Mod : Module_Mod {
 				out = PanAz.ar(8, delayedSignal, Line.kr(xStart, xEnd, length+2+delayTime));
 				out = out*SinOsc.kr(Line.kr(pulseStart, pulseEnd, length+2+delayTime), 1, 0.5);
 				Out.ar(outBus, [out[0],out[1],out[7],out[2],out[6],out[3],out[5],out[4]]*volume);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

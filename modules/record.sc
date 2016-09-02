@@ -8,19 +8,19 @@ Record_Mod : Module_Mod {
 
 				in = In.ar(inBus, 2);
 				DiskOut.ar(bufnum, in*0.5)
-			}).writeDefFile;
+			}).add;
 			SynthDef("record4_mod", { arg bufnum, inBus;
 				var in;
 
 				in = In.ar(inBus, 4);
 				DiskOut.ar(bufnum, in*0.5)
-			}).writeDefFile;
+			}).add;
 			SynthDef("record8_mod", { arg bufnum, inBus;
 				var in;
 
 				in = In.ar(inBus, 8);
 				DiskOut.ar(bufnum, in*0.5)
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

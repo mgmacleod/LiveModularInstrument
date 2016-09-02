@@ -15,7 +15,7 @@ SampleBank_Mod : Module_Mod {
 				out = PlayBuf.ar(1, bufnum, BufRateScale.kr(bufnum), loop: 0);
 				out = Pan2.ar(out, Rand(-1.0,1.0));
 				Out.ar(outBus, out*env*env2*vol*pauseGate);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("sampleBankPlayerStereo_mod", {arg bufnum, outBus, volBus, gate = 1, pauseGate = 1;
 				var in0, in1, env, env2, out, vol, pauseEnv;
@@ -29,7 +29,7 @@ SampleBank_Mod : Module_Mod {
 				out = PlayBuf.ar(2, bufnum, BufRateScale.kr(bufnum), loop: 0);
 
 				Out.ar(outBus, out*env*env2*vol*pauseGate);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

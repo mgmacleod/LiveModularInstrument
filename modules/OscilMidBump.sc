@@ -19,7 +19,7 @@ OscilMidBump_Mod : Module_Mod {
 				env = EnvGen.kr(Env.asr(0.02,1,0.02), gate, doneAction: 2);
 
 				Out.ar(outBus, mid1*vol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

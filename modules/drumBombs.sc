@@ -24,7 +24,7 @@ DrumBombs_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 
-			}).writeDefFile;
+			}).add;
 
 			SynthDef(\drumBombsPlay_mod, { arg buffer, outBus, outVol=0, gate = 1, pauseGate = 1;
 				var sig, env, pauseEnv;
@@ -36,7 +36,7 @@ DrumBombs_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, sig*env*pauseEnv*outVol);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

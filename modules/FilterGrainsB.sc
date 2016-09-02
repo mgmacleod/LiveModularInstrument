@@ -13,7 +13,7 @@ FilterGrainObjectB {
 
 				Out.kr(dispersionBus, Line.kr(Rand(0,1.0), Rand(0,1.0), length+(length/4)));
 
-			}).writeDefFile;
+			}).add;
 
 
 				SynthDef("filterGrainsB2_mod", {arg inBusNum, outBus, largeEnvBusNum, ratioBus, dispersionBus, filterStart, filterEnd, rqStart, rqEnd, delayTime, length, vol;
@@ -50,7 +50,7 @@ FilterGrainObjectB {
 					out = Pan2.ar(grains,
 						Line.kr(xStart, xEnd, length+2+delayTime));
 					Out.ar(outBus, out*volume);
-				}).writeDefFile;
+				}).add;
 		}
 	}
 

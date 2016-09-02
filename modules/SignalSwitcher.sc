@@ -19,7 +19,7 @@ SignalSwitcher_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}.defer(1);
 	}
 
@@ -193,7 +193,7 @@ MixerSolo_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0.01,1,0.01), pauseGate, doneAction:1);
 
 				Out.ar(outBus, In.ar(inBus,8)*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

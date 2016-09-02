@@ -18,7 +18,7 @@ Combulation_Mod : Module_Mod {
 				out = CombC.ar(in, 0.01, TRand.kr(lowRand, hiRand, Impulse.kr(LFNoise2.kr(2, 5, 20))), 0.2);
 
 				Out.ar(outBus, Pan2.ar(out*env*vol*pauseEnv, SinOsc.kr(Rand(0.5,0.25))));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("comby4_mod", {arg inBus, outBus, volBus, lowRandBus, hiRandBus, gate = 1, pauseGate = 1;
 				var in, env, out, vol, lowRand, hiRand, pauseEnv;
@@ -35,7 +35,7 @@ Combulation_Mod : Module_Mod {
 				out = CombC.ar(in, 0.01, TRand.kr(lowRand, hiRand, Impulse.kr(LFNoise2.kr(2, 5, 20))), 0.2);
 
 				Out.ar(outBus, PanAz.ar(4, out*env*vol*pauseEnv, SinOsc.kr(Rand(0.5,0.25))*2));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("comby8_mod", {arg inBus, outBus, volBus, lowRandBus, hiRandBus, gate = 1, pauseGate = 1;
 				var in, env, out, vol, lowRand, hiRand, pauseEnv;
@@ -52,7 +52,7 @@ Combulation_Mod : Module_Mod {
 				out = CombC.ar(in, 0.01, TRand.kr(lowRand, hiRand, Impulse.kr(LFNoise2.kr(2, 5, 20))), 0.2);
 
 				Out.ar(outBus, PanAz.ar(8, out*env*vol*pauseEnv, SinOsc.kr(Rand(0.5,0.25))*2));
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

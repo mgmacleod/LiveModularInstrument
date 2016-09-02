@@ -14,7 +14,7 @@ Convolution_Mod : SignalSwitcher_Mod {
 				out = Convolution.ar(in0, in1, 2048)*env*vol*pauseEnv;
 
 				Out.ar(outBus, out, 0);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -35,7 +35,7 @@ BuchlaModelSolo_Mod :  Module_Mod {
 			 	env = EnvGen.kr(Env.asr(0,1,0), gate, doneAction: 2);
 
 			 	Out.ar(outBus, [layer0,layer0]*env*pauseEnv)
-			 }).writeDefFile
+			 }).add
 		 }
 	}
 

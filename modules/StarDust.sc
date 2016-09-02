@@ -27,7 +27,7 @@ StarDust_Mod : Module_Mod {
 				Out.kr(largeEnvBus, pauseEnv);
 
 				Out.ar(transferBus, [IFFT(chain), IFFT(chain2), IFFT(chain3)]*pauseEnv*env*muteEnv*4);
-			}).writeDefFile;
+			}).add;
 
 
 			SynthDef("starDustDelays_mod", {arg transferBus, outBus, largeEnvBus, xStart, xEnd, delayTime, length, volBus;
@@ -53,7 +53,7 @@ StarDust_Mod : Module_Mod {
 
 				Out.ar(outBus, out*volume*largeEnv*bigEnv);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

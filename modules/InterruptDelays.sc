@@ -27,7 +27,7 @@ InterruptDelays_Mod : Module_Mod {
 				out = in+(LagUD.kr(delaySwitch, 0.05, 0.2)*out*vol);
 
 				Out.ar(outBus, out);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -15,7 +15,7 @@ DownShift_Mod : Module_Mod {
 				out = GVerb.ar(in, 80, 4.85, 0.41, 0.19, 15, 0, 0);
 
 				Out.ar(outBus, out*env*pauseEnv*verbVolBus);
-			}).writeDefFile;
+			}).add;
 			SynthDef("DSverb4_mod",{arg verbBus, verbVolBus, outBus, gate=1, pauseGate=1;
 				var in, out, out2, pauseEnv, env, verbVol;
 
@@ -30,7 +30,7 @@ DownShift_Mod : Module_Mod {
 
 				Out.ar(outBus, out*env*pauseEnv*verbVolBus);
 				Out.ar(outBus+2, out2*env*pauseEnv*verbVolBus);
-			}).writeDefFile;
+			}).add;
 			SynthDef("DSverb8_mod",{arg verbBus, verbVolBus, outBus, gate=1, pauseGate=1;
 				var in, out, out2, out3, out4, pauseEnv, env, verbVol;
 
@@ -49,7 +49,7 @@ DownShift_Mod : Module_Mod {
 				Out.ar(outBus+2, out2*env*pauseEnv*verbVolBus);
 				Out.ar(outBus+4, out3*env*pauseEnv*verbVolBus);
 				Out.ar(outBus+6, out4*env*pauseEnv*verbVolBus);
-			}).writeDefFile;
+			}).add;
 
 
 
@@ -72,7 +72,7 @@ DownShift_Mod : Module_Mod {
 				Out.ar(outBus, out*env);
 				Out.ar(verbBus, Mix.new(out)*verbEnv);
 
-			}).writeDefFile;
+			}).add;
 			SynthDef("downShift4_mod", {|inBus, outBus, volBus, verbBus, length=1, delayTime, start, gate = 1, pauseGate = 1|
 				var in, out, amp, decayTime, vol, env, pauseEnv, verbEnv, out1, out2, out3, out4;
 
@@ -95,7 +95,7 @@ DownShift_Mod : Module_Mod {
 				Out.ar(outBus, [out1, out2, out3, out4]*env);
 				Out.ar(verbBus, Pan2.ar(Mix.new(out)*verbEnv, Line.kr(start, start.neg, length)));
 
-			}).writeDefFile;
+			}).add;
 			SynthDef("downShift8_mod", {|inBus, outBus, volBus, verbBus, length=1, delayTime, start, end, gate = 1, pauseGate = 1|
 				var in, out, amp, decayTime, vol, env, pauseEnv, verbEnv, out1, out2, out3, out4, out5, out6, out7, out8;
 
@@ -118,7 +118,7 @@ DownShift_Mod : Module_Mod {
 				Out.ar(outBus, [out1, out2, out3, out4, out5, out6, out7, out8]*env);
 				Out.ar(verbBus, PanAz.ar(4, Mix.new(out)*verbEnv, Line.kr(start, end, length), orientation:0));
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -225,7 +225,7 @@ FloatShifter_Mod : Module_Mod {
 
 				Out.ar(outBus, out*env);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

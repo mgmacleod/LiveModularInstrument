@@ -39,7 +39,7 @@ Cutter_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0.1,1,0.1), pauseGate, doneAction:1);
 
 				Out.ar(outBus, TGrains2.ar(2, clk, bufnum, 1.0, point, dur, TRand.kr(-1, 1, clk), 1, 0.01, 0.01, 4)*vol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("cutter4_mod", {arg inBus, outBus, bufnum, pointClkFreeze, latchPoint, lowRate, highRate, volBus, onOff, overlap = 1, gate = 1, pauseGate = 1;
 				var in, trate, dur, xPos, clk, pointClk, point, point0, point1, point2, point3, point4, point5, point6, point7, phasor, env, pauseEnv, vol;
@@ -77,7 +77,7 @@ Cutter_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0.1,1,0.1), pauseGate, doneAction:1);
 
 				Out.ar(outBus, TGrains2.ar(4, clk, bufnum, 1.0, point, dur, TRand.kr(-1, 1, clk), 1, 0.01, 0.01, 4)*vol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("cutter8_mod", {arg inBus, outBus, bufnum, pointClkFreeze, latchPoint, lowRate, highRate, volBus, onOff, overlap = 1, gate = 1, pauseGate = 1;
 				var in, trate, dur, xPos, clk, pointClk, point, point0, point1, point2, point3, point4, point5, point6, point7, phasor, env, pauseEnv, vol;
@@ -115,7 +115,7 @@ Cutter_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0.1,1,0.1), pauseGate, doneAction:1);
 
 				Out.ar(outBus, TGrains2.ar(8, clk, bufnum, 1.0, point, dur, TRand.kr(-1, 1, clk), 1, 0.01, 0.01, 4)*vol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -270,7 +270,7 @@ CutterThrough_Mod : Module_Mod {
 				out = SelectX.ar(Lag.kr(whichSig,0.1)*2, [inSt, TGrains2.ar(2, clk, bufnum, 1.0, point, dur, TRand.kr(-1, 1, clk), 1, 0.01, 0.01, 4)*vol]);
 
 				Out.ar(outBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("cutterB4_mod", {arg inBus, outBus, bufnum, pointClkFreeze, latchPoint, lowRate, highRate, volBus, onOff, whichSig=0, gate = 1, pauseGate = 1;
 				var inSt, in, out, trate, dur, xPos, clk, pointClk, point, point0, point1, point2, point3, point4, point5, point6, point7, phasor, env, pauseEnv, vol;
@@ -313,7 +313,7 @@ CutterThrough_Mod : Module_Mod {
 
 				Out.ar(outBus, out*env*pauseEnv);
 
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("cutterB8_mod", {arg inBus, outBus, bufnum, pointClkFreeze, latchPoint, lowRate, highRate, volBus, onOff, whichSig=0, gate = 1, pauseGate = 1;
 				var inSt, in, out, trate, dur, xPos, clk, pointClk, point, point0, point1, point2, point3, point4, point5, point6, point7, phasor, env, pauseEnv, vol;
@@ -354,7 +354,7 @@ CutterThrough_Mod : Module_Mod {
 				out = SelectX.ar(Lag.kr(whichSig,0.1)*2, [inSt, TGrains2.ar(8, clk, bufnum, 1.0, point, dur, TRand.kr(-1, 1, clk), 1, 0.01, 0.01, 4)*vol]);
 
 				Out.ar(outBus, out*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -16,7 +16,7 @@ MincekSine_Mod : Module_Mod {
 				sine = SinOsc.ar(VarLag.kr(freq, lagTime), 0, Lag.kr(vol, 0.01)*Lag.kr(lilVol, 0.1)*0.1);
 
 				Out.ar(outBus, Pan2.ar(sine*AmpComp.kr(freq)*env*pauseEnv, Rand(-1, 1)));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -10,7 +10,7 @@ StraightDelays_Mod : Module_Mod {
 
 				env = EnvGen.kr(Env.asr(0,1,0), gate, doneAction: 2);
 				Out.kr(outBusNum, env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("straightDelays2_mod", {arg inBusNum, outBus, largeEnvBusNum, delayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, bigEnv, volume, xStart, xEnd;
@@ -31,7 +31,7 @@ StraightDelays_Mod : Module_Mod {
 				delayedSignal = DelayL.ar(in2, 5, delayTime);
 				out = Pan2.ar(delayedSignal, Line.kr(xStart, xEnd, length+2+delayTime));
 				Out.ar(outBus, out*volume);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("straightDelays4_mod", {arg inBusNum, outBus, largeEnvBusNum, delayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, bigEnv, volume, xStart, xEnd;
@@ -52,7 +52,7 @@ StraightDelays_Mod : Module_Mod {
 				delayedSignal = DelayL.ar(in2, 5, delayTime);
 				out = PanAz.ar(4, delayedSignal, Line.kr(xStart, xEnd, length+2+delayTime));
 				Out.ar(outBus, [out[0],out[1],out[3],out[2]]*volume);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("straightDelays8_mod", {arg inBusNum, outBus, largeEnvBusNum, delayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, bigEnv, volume, xStart, xEnd;
@@ -73,7 +73,7 @@ StraightDelays_Mod : Module_Mod {
 				delayedSignal = DelayL.ar(in2, 5, delayTime);
 				out = PanAz.ar(8, delayedSignal, Line.kr(xStart, xEnd, length+2+delayTime));
 				Out.ar(outBus, [out[0],out[1],out[7],out[2],out[6],out[3],out[5],out[4]]*volume);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

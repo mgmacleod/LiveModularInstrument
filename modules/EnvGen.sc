@@ -18,7 +18,7 @@ EnvGen_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, In.ar(inBus, 8)*env*mod*pauseEnv*mod);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

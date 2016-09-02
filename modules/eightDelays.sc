@@ -7,7 +7,7 @@ EightDelays2_Mod : Module_Mod {
 				ReplaceOut.kr(delayBus, Line.kr(start, end, time, doneAction: 2));
 				EnvGen.kr(Env.new([0,1],[length]), doneAction:2);
 				EnvGen.kr(Env.asr(0.001, 1, 0.001), pauseGate);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("eightDelays2L2_mod", {arg inBus, outBus, delayBus, maxDelay, volBus, length, pauseGate = 1;
 				var in, out, env, phasor, delayIn, out0, out1, out2, out3, out4, out5, out6, out7, pauseEnv, vol;
@@ -30,7 +30,7 @@ EightDelays2_Mod : Module_Mod {
 				out7 = Pan2.ar(DelayC.ar(in, maxDelay, delayIn*(8/8)), 1);
 
 				Out.ar(outBus, (out0+out1+out2+out3+out4+out5+out6+out7)*env*vol*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("eightDelays2R2_mod", {arg inBus, outBus, delayBus, maxDelay, volBus, length, pauseGate = 1;
 				var in, out, env, phasor, delayIn, out0, out1, out2, out3, out4, out5, out6, out7, pauseEnv, vol;
@@ -53,7 +53,7 @@ EightDelays2_Mod : Module_Mod {
 				out7 = Pan2.ar(DelayC.ar(in, maxDelay, delayIn*(8/8)), -1);
 
 				Out.ar(outBus, (out0+out1+out2+out3+out4+out5+out6+out7)*env*vol*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			//4 channel
 
@@ -78,7 +78,7 @@ EightDelays2_Mod : Module_Mod {
 				out7 = PanAz.ar(4, DelayC.ar(in, maxDelay, delayIn*(8/8)), 1);
 
 				Out.ar(outBus, (out0+out1+out2+out3+out4+out5+out6+out7)*env*vol*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("eightDelays2R4_mod", {arg inBus, outBus, delayBus, maxDelay, volBus, length, pauseGate = 1;
 				var in, out, env, phasor, delayIn, out0, out1, out2, out3, out4, out5, out6, out7, pauseEnv, vol;
@@ -103,7 +103,7 @@ EightDelays2_Mod : Module_Mod {
 				#out1, out2, out3, out4 = out0+out1+out2+out3+out4+out5+out6+out7;
 
 				Out.ar(outBus, [out1, out2, out4, out3]*env*vol*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			//8 channel
 
@@ -129,7 +129,7 @@ EightDelays2_Mod : Module_Mod {
 
 
 				Out.ar(outBus, [out3,out4,out2,out5,out1,out6,out0,out7]*env*vol*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("eightDelays2R8_mod", {arg inBus, outBus, delayBus, maxDelay, volBus, length, pauseGate = 1;
 				var in, out, env, phasor, delayIn, out0, out1, out2, out3, out4, out5, out6, out7, pauseEnv, vol;
@@ -152,7 +152,7 @@ EightDelays2_Mod : Module_Mod {
 				out7 = DelayC.ar(in, maxDelay, delayIn*(8/8));
 
 				Out.ar(outBus, [out4,out3,out5,out2,out6,out1,out7,out0]*env*vol*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}
@@ -283,7 +283,7 @@ Melter_Mod : Module_Mod {
 
 				Out.ar(outBus, Pan2.ar(out0*vol*pauseEnv, pan)+Pan2.ar(out1*vol*pauseEnv, pan+Rand(-0.07, 0.07)));
 			//	Out.ar(outBus, Pan2.ar(out0*vol*pauseEnv, pan));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("melter4_mod", {arg inBus, outBus, delayStart, delayEnd, ratio0, ratio1, length, volBus, gate = 1, pauseGate = 1;
 				var in, out0, out1, out2, out3, out4, env, phasor, delayTime, pauseEnv, vol, ratio, pan;
@@ -305,7 +305,7 @@ Melter_Mod : Module_Mod {
 				#out1, out2, out3, out4 = PanAz.ar(4, out0*vol*pauseEnv, pan)+PanAz.ar(4, out1*vol*pauseEnv, pan.neg);
 
 				Out.ar(outBus, [out1, out2, out4, out3]);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("melter8_mod", {arg inBus, outBus, delayStart, delayEnd, ratio0, ratio1, length, volBus, gate = 1, pauseGate = 1;
 				var in, out0, out1, out2, out3, out4, out5, out6, out7, out8, env, phasor, delayTime, pauseEnv, vol, ratio, pan;
@@ -327,7 +327,7 @@ Melter_Mod : Module_Mod {
 				#out1, out2, out3, out4, out5, out6, out7, out8 = PanAz.ar(8, out0*vol*pauseEnv, pan)+PanAz.ar(8, out1*vol*pauseEnv, pan.neg);
 
 				Out.ar(outBus, [out1, out2, out8, out3, out7, out4, out6, out5]);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -437,7 +437,7 @@ LongDelay_Mod : Module_Mod {
 				out0 = Pan2.ar(AllpassC.ar(in, 17, delayTime, decayTime), pan);
 
 				Out.ar(outBus, (out0)*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("longDelay4_mod", {arg inBus, outBus, volBus, delBus, decBus, panBus, gate = 1, pauseGate = 1;
 				var in, out, env, phasor, out0, pauseEnv, delayTime=4, decayTime=20, vol=0, pan = 0;
@@ -454,7 +454,7 @@ LongDelay_Mod : Module_Mod {
 				out0 = PanAz.ar(4, AllpassC.ar(in, 17, delayTime, decayTime), pan);
 
 				Out.ar(outBus, [out0[0], out0[1], out0[3], out0[2]]*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("longDelay8_mod", {arg inBus, outBus, volBus, delBus, decBus, panBus, gate = 1, pauseGate = 1;
 				var in, out, env, phasor, out0, pauseEnv, delayTime=4, decayTime=20, vol=0, pan = 0;
@@ -471,7 +471,7 @@ LongDelay_Mod : Module_Mod {
 				out0 = PanAz.ar(8, AllpassC.ar(in, 17, delayTime, decayTime), pan);
 
 				Out.ar(outBus, [out0[0], out0[1], out0[7], out0[2], out0[6], out0[3], out0[5], out0[4]]*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

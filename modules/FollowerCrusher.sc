@@ -23,7 +23,7 @@ FollowerCrusher_Mod : Module_Mod {
 				Out.ar(outBus, in*inVol);
 				Out.ar(outBus, [fx1, fx2]*offOn);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

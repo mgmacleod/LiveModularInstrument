@@ -21,7 +21,7 @@ DistGrains_Mod : Module_Mod {
 				out0 = Pan2.ar(out0, SinOsc.ar(LFNoise0.kr(0.2).range(0.25, 1), Rand(0, 2pi)));
 
 				Out.ar(outBus, out0*vol*pauseEnv*env);
-			}).writeDefFile;
+			}).add;
 
 
 
@@ -42,7 +42,7 @@ DistGrains_Mod : Module_Mod {
 				out0 = PanAz.ar(4, out0, SinOsc.ar(LFNoise0.kr(0.2).range(0.25, 1), Rand(0, 2pi)));
 
 				Out.ar(outBus, out0*vol*pauseEnv*env);
-			}).writeDefFile;
+			}).add;
 
 
 
@@ -63,7 +63,7 @@ DistGrains_Mod : Module_Mod {
 				out0 = PanAz.ar(8, out0, SinOsc.ar(LFNoise0.kr(0.2).range(0.25, 1), Rand(0, 2pi)));
 
 				Out.ar(outBus, out0*vol*pauseEnv*env);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

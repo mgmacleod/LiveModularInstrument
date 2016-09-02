@@ -29,7 +29,7 @@ GrainInterrupt_Mod : Module_Mod {
 
 				Out.ar(outBus, out*pauseEnv*env);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

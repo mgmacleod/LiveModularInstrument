@@ -31,7 +31,7 @@ CrackleSynth_Mod : Module_Mod {
 
 				Out.ar(outBus, (max(LFSaw.kr(envRate, 0, 1, 0.5), Lag.kr(justOn, 0.01)))*synth*vol*env*pauseEnv);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

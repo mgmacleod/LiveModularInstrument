@@ -13,7 +13,7 @@ AtdV_Mod : Module_Mod {
 				in = In.ar(inBus, 8);
 
 				Out.ar(outBus, in*env*pauseEnv*muteEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("AtdVPlayer_mod", {arg bufnum, outBus, volBus, gate = 1, pauseGate = 1, muteGate = 1;
 				var out, out2, vol, pauseEnv, env, muteEnv;
@@ -33,7 +33,7 @@ AtdV_Mod : Module_Mod {
 
 				//Out.ar(0, out*env*vol*pauseEnv*muteEnv);
 
-			}).writeDefFile;
+			}).add;
 
 		}
 

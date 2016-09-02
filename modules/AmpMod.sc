@@ -14,7 +14,7 @@ AmpMod_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, In.ar(inBus, 8)*env*mod*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -151,7 +151,7 @@ TestSine_Mod : Module_Mod {
 				Out.ar(outBus, out*0.05*env*pauseEnv);
 
 				//Out.ar(outBus, SinOsc.ar(MouseX.kr(100, 3000).poll*0.1*env*pauseEnv));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

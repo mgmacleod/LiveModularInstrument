@@ -26,7 +26,7 @@ InterruptDistortion_Mod : Module_Mod {
 				out = (Lag.kr(1-distortSwitch, 0.05)*in)+(Lag.kr(distortSwitch, 0.05)*out*vol);
 
 				Out.ar(outBus, out);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

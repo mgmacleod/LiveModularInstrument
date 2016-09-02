@@ -165,7 +165,7 @@ FeedbackDetection {
 				outSig = IFFT(chain0);
 
 				Out.ar(outBus, outSig*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
@@ -275,7 +275,7 @@ FeedbackControl_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, Mix.new(Limiter.ar(in, 0.1, 0.03)*volume));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

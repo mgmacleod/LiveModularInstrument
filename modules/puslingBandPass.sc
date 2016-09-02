@@ -10,7 +10,7 @@ PulseBP_Mod : Module_Mod {
 
 				env = EnvGen.kr(Env.asr(0,1,0), gate, doneAction: 2);
 				Out.kr(outBusNum, env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("amplitudePBP_mod", {|inBus, ampBus|
 				var amp;
@@ -18,7 +18,7 @@ PulseBP_Mod : Module_Mod {
 				amp = Amplitude.kr(In.ar(inBus));
 
 				Out.kr(ampBus, amp);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("pulsingBandPass2_mod", {|inBus, outBus, ampBus, volBus, largeEnvBus, freq, rq, delayTime, gate = 1, pauseGate = 1|
 				var in, out, amp, decayTime, vol, largeEnv, env, pauseEnv;
@@ -39,7 +39,7 @@ PulseBP_Mod : Module_Mod {
 
 				//Out.ar(outBus, in);
 				Out.ar(outBus, env*pauseEnv*vol*largeEnv*out*EnvGen.kr(Env.new([0,1,1,0],[0.01, decayTime, 1]), 1, doneAction:2));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("pulsingBandPass4_mod", {|inBus, outBus, ampBus, volBus, largeEnvBus, freq, rq, delayTime, gate = 1, pauseGate = 1|
 				var in, out, amp, decayTime, vol, largeEnv, env, pauseEnv;
@@ -60,7 +60,7 @@ PulseBP_Mod : Module_Mod {
 
 				//Out.ar(outBus, in);
 				Out.ar(outBus, env*pauseEnv*vol*largeEnv*[out[0],out[1],out[3],out[2]]*EnvGen.kr(Env.new([0,1,1,0],[0.01, decayTime, 1]), 1, doneAction:2));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("pulsingBandPass8_mod", {|inBus, outBus, ampBus, volBus, largeEnvBus, freq, rq, delayTime, gate = 1, pauseGate = 1|
 				var in, out, amp, decayTime, vol, largeEnv, env, pauseEnv;
@@ -81,7 +81,7 @@ PulseBP_Mod : Module_Mod {
 
 				//Out.ar(outBus, in);
 				Out.ar(outBus, env*pauseEnv*vol*largeEnv*[out[0],out[1],out[7],out[2],out[6],out[3],out[5],out[4]]*EnvGen.kr(Env.new([0,1,1,0],[0.01, decayTime, 1]), 1, doneAction:2));
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

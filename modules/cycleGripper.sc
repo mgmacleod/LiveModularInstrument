@@ -38,7 +38,7 @@ CycleGripper_Mod : Module_Mod {
 				LocalOut.ar(local.reverse*1.2);
 
 				Out.ar(outBus, local*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

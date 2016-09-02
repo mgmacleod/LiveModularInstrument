@@ -59,7 +59,7 @@ SinArray_Mod : Module_Mod {
 
 				Out.ar(outBus, Pan2.ar(sin, pan)*env*pauseEnv*localEnv);
 
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

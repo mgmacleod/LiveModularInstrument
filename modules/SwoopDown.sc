@@ -31,7 +31,7 @@ SwoopDown_Mod : Module_Mod {
 				vol = In.kr(volBus);
 
 				Out.ar(outBus, ([out0,out1]+verb)*bigEnv*vol);
-			}).writeDefFile;
+			}).add;
 			SynthDef(\swoopDown4_mod, {| inBus, outBus, volBus, bufnum, time, loopTime, bottom0, bottom1, bottom2, bottom3 |
 				var trig, out, out0, out1, out2, out3, out4, ampMod0, ampMod1, verb0, verb1, env, bigEnv, vol;
 
@@ -65,7 +65,7 @@ SwoopDown_Mod : Module_Mod {
 				Out.ar(outBus, [out1,out2,out3, out4]*bigEnv*vol);
 				Out.ar(outBus, verb0);
 				Out.ar(outBus+2, verb1);
-			}).writeDefFile;
+			}).add;
 			SynthDef(\swoopDown8_mod, {| inBus, outBus, volBus, bufnum, time, loopTime, bottom0, bottom1, bottom2, bottom3 |
 				var trig, out, out0, out1, out2, out3, out4, out5, out6, out7, out8, ampMod0, ampMod1, verb0, verb1, verb2, verb3, env, bigEnv, vol;
 
@@ -103,7 +103,7 @@ SwoopDown_Mod : Module_Mod {
 				Out.ar(outBus+2, verb1);
 				Out.ar(outBus+4, verb2);
 				Out.ar(outBus+6, verb3);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

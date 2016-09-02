@@ -14,7 +14,7 @@
 //				in = In.ar(inBus);
 //				
 //				Out.ar(outBus, in)
-//			}).writeDefFile;
+//			}).add;
 //			
 //			SynthDef(\drumVerb_mod, {arg inBus, outBus, roomsize, revtime, damping, inputbw, spread = 15, dryLevel, verbLevel, earlylevel, taillevel, pitchShift, bigVol;
 //				var in, verb;
@@ -38,7 +38,7 @@
 //				verb = PitchShift.ar(verb, 0.02, pitchShift, 0.0);
 //				
 //				ReplaceOut.ar(outBus, (Pan2.ar((in*dryLevel), Rand(-1,1))+(verb*verbLevel))*bigVol)
-//			}).writeDefFile;
+//			}).add;
 //		}
 //	}
 //	
@@ -549,7 +549,7 @@
 //				Out.ar(4, out2);
 //				Out.ar(6, out3);
 //				
-//			}).writeDefFile
+//			}).add
 //		}
 //	}
 //	

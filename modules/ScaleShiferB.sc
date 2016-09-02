@@ -31,7 +31,7 @@ ScaleShifterB_Mod : Module_Mod {
 				out = Pan2.ar(sig0,
 					Line.kr(xStart, xEnd, length))*largeEnv;
 				Out.ar(outBus, out*outVol);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

@@ -28,7 +28,7 @@ SpecDelay_Mod : Module_Mod {
 				out = [IFFT(chain), IFFT(chain1)];
 
 				Out.ar(outBus, out*env*pauseEnv*outVol );
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

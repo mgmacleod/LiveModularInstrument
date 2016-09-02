@@ -18,7 +18,7 @@ Distortion2D_Mod : Module_Mod {
 				Out.kr(delayedMiceBus+10, DelayC.kr(in, 2.1, SinOsc.kr(Rand(0.1,0.2)).range(delayTime0, delayTime1)));
 				Out.kr(delayedMiceBus+12, DelayC.kr(in, 2.1, SinOsc.kr(Rand(0.1,0.2)).range(delayTime0, delayTime1)));
 				Out.kr(delayedMiceBus+14, DelayC.kr(in, 2.1, SinOsc.kr(Rand(0.1,0.2)).range(delayTime0, delayTime1)));
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("mouseDistort_mod",{arg inBus, outBus, attack, sustain, decay, mouseBus, volBus;
 				var in, env, time, bigVol, length, vol, mouseIn;
@@ -44,7 +44,7 @@ Distortion2D_Mod : Module_Mod {
 				out = LeakDC.ar(out, 0.995);
 
 				Out.ar(outBus, out);
-			}).writeDefFile;
+			}).add;
 
 		}
 	}

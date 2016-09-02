@@ -14,7 +14,7 @@ UpDownSines_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, out*In.kr(volBus)*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("sineUpDown4_mod", {arg outBus, volBus, startFreq, endFreq, time, gate=1, pauseGate = 1;
 				var out, pauseEnv, lfo;
@@ -29,7 +29,7 @@ UpDownSines_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, out*In.kr(volBus)*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("sineUpDown8_mod", {arg outBus, volBus, startFreq, endFreq, time, gate=1, pauseGate = 1;
 				var out, pauseEnv, lfo;
@@ -44,7 +44,7 @@ UpDownSines_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, out*In.kr(volBus)*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

@@ -14,7 +14,7 @@ GrainAge_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				RecordBuf.ar(in, bufnum, run:run, loop:1);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("grainage2_mod", {arg outBus, bufnum, select, vol=1, trate=2, xPlace=0.5, smallGate=0, gate = 1, pauseGate=1;
 				var dur, out, env, smallEnv, length, place, pan, pauseEnv;
@@ -34,7 +34,7 @@ GrainAge_Mod : Module_Mod {
 				pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 
 				Out.ar(outBus, smallEnv*env*out*vol*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			//not updated to use direct vol or 2DSlider
 
@@ -60,7 +60,7 @@ GrainAge_Mod : Module_Mod {
 			// 	pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 			//
 			// 	Out.ar(outBus, [out[0],out[1],out[3],out[2]]*smallEnv*env*vol*pauseEnv);
-			// }).writeDefFile;
+			// }).add;
 			//
 			// SynthDef("grainage8_mod", {arg outBus, bufnum, select, volBus, smallGate=0, gate = 1, pauseGate=1;
 			// 	var trate, dur, out, env, smallEnv, vol, length, place, pan, pauseEnv;
@@ -83,7 +83,7 @@ GrainAge_Mod : Module_Mod {
 			// 	pauseEnv = EnvGen.kr(Env.asr(0,1,0), pauseGate, doneAction:1);
 			//
 			// 	Out.ar(outBus, [out[0],out[1],out[7],out[2],out[6],out[3],out[5],out[4]]*smallEnv*env*vol*pauseEnv);
-			// }).writeDefFile;
+			// }).add;
 		}
 	}
 

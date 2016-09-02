@@ -17,14 +17,14 @@ HarmonicShifter2_Mod {
 
 				env = Env.asr(attack,1,decay);
 				Out.kr(outBusNum, EnvGen.kr(env, gate, doneAction: 2));
-			}).writeDefFile;
+			}).add;
 			SynthDef(\audioDelay_mod, {arg inBus, outBus, delayTime;
 				var in;
 
 				in = DelayC.ar(In.ar(inBus), delayTime, delayTime);
 
 				Out.ar(outBus, in);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef(\shifterX2_mod, {arg inBus, outBus1, outBus2, outBus3, outBus4, length, delayTime, windowSize, pitchRatio, 				pitchDisp, xStart, xEnd, yStart, yEnd, largeEnvBusNum;
 				var in, in2, out1, out2, out3, out4, addToSlope, env, bigEnv, largeEnv;
@@ -47,7 +47,7 @@ HarmonicShifter2_Mod {
 				Out.ar(outBus2, out2);
 				Out.ar(outBus3, out3);
 				Out.ar(outBus4, out4);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

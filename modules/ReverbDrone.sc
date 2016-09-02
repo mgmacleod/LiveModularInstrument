@@ -38,7 +38,7 @@ ReverbDrone_Mod : Module_Mod {
 				LocalOut.ar(local);
 
 				Out.ar(out, (local*0.1)*vol*env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 

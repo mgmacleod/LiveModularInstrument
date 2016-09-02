@@ -11,7 +11,7 @@ FilterDelays_Mod : Module_Mod {
 
 				env = EnvGen.kr(Env.asr(0,1,0), gate, doneAction: 2);
 				Out.kr(outBusNum, env*pauseEnv);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("filterDelays2_mod", {arg inBusNum, outBus, largeEnvBusNum, filterStart, filterEnd, rqStart, rqEnd, delayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, bigEnv, volume, xStart, xEnd;
@@ -37,7 +37,7 @@ FilterDelays_Mod : Module_Mod {
 						Line.kr(rqStart, rqEnd, length+2)),
 					Line.kr(xStart, xEnd, length+2));
 				Out.ar(outBus, out*volume);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("filterDelays4_mod", {arg inBusNum, outBus, largeEnvBusNum, filterStart, filterEnd, rqStart, rqEnd, delayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, bigEnv, volume, xStart, xEnd, yStart, yEnd;
@@ -66,7 +66,7 @@ FilterDelays_Mod : Module_Mod {
 					Line.kr(yStart, yEnd, length+2+delayTime)
 				);
 				Out.ar(outBus, out*volume);
-			}).writeDefFile;
+			}).add;
 
 			SynthDef("filterDelays8_mod", {arg inBusNum, outBus, largeEnvBusNum, filterStart, filterEnd, rqStart, rqEnd, delayTime, length, vol;
 				var in, in2, env, delayedSignal, buffer, out, largeEnv, bigEnv, volume, azStart, azEnd;
@@ -91,7 +91,7 @@ FilterDelays_Mod : Module_Mod {
 						Line.kr(rqStart, rqEnd, length+delayTime+2)),
 					Line.kr(azStart, azEnd, length+2+delayTime));
 				Out.ar(outBus, out*volume);
-			}).writeDefFile;
+			}).add;
 		}
 	}
 
